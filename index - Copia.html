@@ -11,7 +11,6 @@
                 extend: {
                     colors: {
                         primary: '#5D5CDE',
-                        'primary-dark': '#4A4BC4',
                         n8n: '#FF6D5A'
                     }
                 }
@@ -29,7 +28,6 @@
             padding: 1rem;
             font-family: 'Courier New', monospace;
             border-radius: 0 8px 8px 0;
-            overflow-x: auto;
         }
         
         .dark .code-block {
@@ -65,19 +63,6 @@
             z-index: 1000;
             transition: width 0.3s ease;
         }
-
-        .nav-link.active {
-            background: #5D5CDE;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
-            .sidebar-fixed {
-                position: fixed;
-                height: 100vh;
-                overflow-y: auto;
-            }
-        }
     </style>
 </head>
 <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 smooth-scroll">
@@ -96,7 +81,7 @@
                         <p class="text-sm text-gray-600 dark:text-gray-400">Automação de Workflows</p>
                     </div>
                 </div>
-                <button id="menuToggle" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                <button id="menuToggle" class="md:hidden p-2 rounded-lg bg-gray-100 dark:bg-gray-700">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -107,9 +92,9 @@
 
     <div class="flex">
         <!-- Sidebar -->
-        <nav id="sidebar" class="w-80 bg-gray-50 dark:bg-gray-800 min-h-screen p-4 sidebar-fixed md:sticky top-16 z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300">
+        <nav id="sidebar" class="w-80 bg-gray-50 dark:bg-gray-800 min-h-screen p-4 fixed md:sticky top-16 z-40 transform -translate-x-full md:translate-x-0 transition-transform duration-300">
             <div class="space-y-2">
-                <h2 class="font-bold text-lg mb-4 text-primary">📚 Índice</h2>
+                <h2 class="font-bold text-lg mb-4 text-primary">Índice</h2>
                 <a href="#introducao" class="nav-link block p-3 rounded-lg hover:bg-white dark:hover:bg-gray-700 transition-colors">
                     <span class="font-medium">1. Introdução ao n8n</span>
                 </a>
@@ -144,13 +129,13 @@
         </nav>
 
         <!-- Main Content -->
-        <main class="flex-1 p-4 md:p-6 md:ml-0">
+        <main class="flex-1 p-6 md:ml-0">
             <div class="max-w-4xl mx-auto">
                 
                 <!-- Seção 1: Introdução -->
                 <section id="introducao" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">1. Introdução ao n8n</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">1. Introdução ao n8n</h2>
                         
                         <div class="highlight-box rounded-lg p-6 mb-6">
                             <h3 class="text-xl font-semibold mb-3">O que é o n8n?</h3>
@@ -193,8 +178,8 @@
 
                 <!-- Seção 2: Conceitos Fundamentais -->
                 <section id="conceitos" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">2. Conceitos Fundamentais</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">2. Conceitos Fundamentais</h2>
                         
                         <div class="space-y-6">
                             <div class="highlight-box rounded-lg p-6">
@@ -239,77 +224,81 @@
 
                 <!-- Seção 3: Instalação -->
                 <section id="instalacao" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">3. Instalação e Configuração</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">3. Instalação e Configuração</h2>
                         
-                        <h3 class="text-xl font-semibold mb-4">🪟 Instalação no Windows com Docker</h3>
-                        
-                        <div class="bg-blue-50 dark:bg-blue-900 p-6 rounded-lg mb-6">
-                            <h4 class="font-semibold mb-3">1. Instalar Docker Desktop</h4>
-                            <p class="mb-3">Baixe e instale o Docker Desktop:</p>
-                            <a href="https://www.docker.com/products/docker-desktop/" target="_blank" rel="noopener noreferrer" 
-                               class="inline-flex items-center text-primary hover:text-primary-dark underline">
-                                🔗 Docker Desktop para Windows
-                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
-                                    <path d="M5 5a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2v-2a1 1 0 10-2 0v2H5V7h2a1 1 0 000-2H5z"></path>
-                                </svg>
-                            </a>
-                            <div class="mt-3 p-3 bg-white dark:bg-gray-800 rounded border-l-4 border-blue-500">
-                                <p class="text-sm">Após instalar, verifique se o Docker está funcionando:</p>
-                                <div class="code-block mt-2">docker --version</div>
-                            </div>
-                        </div>
+						
+<h2>1. Instalar o Docker Desktop no Windows</h2>
+<p>
+    Baixe o instalador:<br>
+    <a href="https://www.docker.com/products/docker-desktop/" target="_blank">
+        https://www.docker.com/products/docker-desktop/
+    </a>
+</p>
+<p>
+    Execute o instalador e siga os passos.<br>
+    Após a instalação, abra o Docker Desktop e aguarde até ele mostrar que está rodando (ícone verde na barra de tarefas).
+</p>
+<p>
+    Verifique se o Docker está funcionando:<br>
+    Abra o Prompt de Comando (CMD) ou PowerShell e digite:
+</p>
+<pre><code>docker --version</code></pre>
+<p>Deve mostrar a versão do Docker.</p>
 
-                        <div class="bg-green-50 dark:bg-green-900 p-6 rounded-lg mb-6">
-                            <h4 class="font-semibold mb-3">2. Execução Rápida (Teste)</h4>
-                            <p class="mb-3">Para testar rapidamente sem salvar dados:</p>
-                            <div class="code-block mb-3">docker run -it --rm --name n8n -p 5678:5678 n8nio/n8n</div>
-                            <p class="text-sm">⚠️ <strong>Atenção:</strong> Os dados serão perdidos ao fechar o terminal.</p>
-                        </div>
+<h2>2. Escolher onde rodar o n8n</h2>
+<p>
+    Você pode rodar o n8n direto pelo CMD ou, melhor ainda, criar um arquivo 
+    <code>docker-compose.yml</code> para iniciar com um clique.
+</p>
 
-                        <div class="bg-purple-50 dark:bg-purple-900 p-6 rounded-lg mb-6">
-                            <h4 class="font-semibold mb-3">3. Execução com Persistência</h4>
-                            <div class="space-y-3">
-                                <p>Crie uma pasta para salvar os dados:</p>
-                                <div class="code-block">mkdir C:\n8n</div>
-                                <p>Execute o n8n com persistência:</p>
-                                <div class="code-block">docker run -it --rm --name n8n -p 5678:5678 -v C:\n8n:/home/node/.n8n n8nio/n8n</div>
-                            </div>
-                        </div>
+<h2>3. Rodar o n8n (teste rápido sem salvar nada)</h2>
+<p>No PowerShell ou CMD, rode:</p>
+<pre><code>docker run -it --rm --name n8n -p 5678:5678 n8nio/n8n</code></pre>
+<p>Depois, acesse no navegador: <a href="http://localhost:5678" target="_blank">http://localhost:5678</a></p>
+<p><strong>Atenção:</strong> Ao fechar o terminal, os dados serão apagados.</p>
 
-                        <div class="bg-yellow-50 dark:bg-yellow-900 p-6 rounded-lg mb-6">
-                            <h4 class="font-semibold mb-3">4. Docker Compose (Recomendado)</h4>
-                            <div class="space-y-3">
-                                <p>Crie um arquivo <code>docker-compose.yml</code>:</p>
-                                <div class="code-block">
-version: "3.8"
+<h2>4. Rodar o n8n com persistência (salvar dados)</h2>
+<p>Para salvar os dados, você precisa criar uma pasta para os arquivos do n8n:</p>
+<p>No PowerShell, crie uma pasta:</p>
+<pre><code>mkdir C:\n8n</code></pre>
+<p>Rode o container usando esta pasta:</p>
+<pre><code>docker run -it --rm --name n8n -p 5678:5678 ^
+  -v C:\n8n:/home/node/.n8n n8nio/n8n</code></pre>
+<p>Agora tudo que você criar será salvo na pasta <code>C:\n8n</code>.</p>
+
+<h2>5. Método mais fácil (com Docker Compose – Recomendado)</h2>
+<p>Você pode criar um arquivo chamado <code>docker-compose.yml</code> e gerenciar o n8n com apenas um comando.</p>
+<p>Crie uma pasta <code>C:\n8n-docker</code></p>
+<p>Dentro dela, crie um arquivo <code>docker-compose.yml</code> com este conteúdo:</p>
+<pre><code class="language-yaml">version: "3"
 services:
   n8n:
     image: n8nio/n8n
     restart: always
     ports:
       - "5678:5678"
-    environment:
-      - N8N_HOST=localhost
-      - N8N_PORT=5678
-      - N8N_PROTOCOL=http
-      - NODE_ENV=production
-      - WEBHOOK_URL=http://localhost:5678/
     volumes:
-      - ./n8n_data:/home/node/.n8n
-                                </div>
-                                <p>Inicie com:</p>
-                                <div class="code-block">docker compose up -d</div>
-                            </div>
-                        </div>
+      - C:\n8n:/home/node/.n8n
+</code></pre>
+<p>Abra o PowerShell na pasta <code>C:\n8n-docker</code> e rode:</p>
+<pre><code>docker compose up -d</code></pre>
+<p>O n8n ficará disponível em <a href="http://localhost:5678" target="_blank">http://localhost:5678</a> e iniciará automaticamente.</p>
 
-                        <h3 class="text-xl font-semibold mb-4">🐳 Método 1: Docker (Multiplataforma)</h3>
+<hr>
+
+<p><strong>Quer que eu te envie um docker-compose.yml pronto?</strong><br>
+Posso criar um modelo para Windows já configurado com timezone, nome do container e persistência. Quer que eu gere agora?</p>
+					
+						
+						
+						
+                        <h3 class="text-xl font-semibold mb-4">🐳 Método 1: Docker (Recomendado)</h3>
                         <div class="code-block mb-6">
-# Instalar via Docker (Linux/Mac)
+# Instalar via Docker
 docker run -it --rm --name n8n -p 5678:5678 n8nio/n8n
 
-# Com persistência de dados (Linux/Mac)
+# Com persistência de dados
 docker run -it --rm --name n8n -p 5678:5678 \
   -v ~/.n8n:/home/node/.n8n n8nio/n8n
                         </div>
@@ -324,17 +313,8 @@ n8n start
                         </div>
 
                         <h3 class="text-xl font-semibold mb-4">☁️ Método 3: n8n Cloud</h3>
-                        <div class="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 p-6 rounded-lg mb-6">
-                            <p class="mb-3">Para começar rapidamente sem instalação:</p>
-                            <a href="https://cloud.n8n.io" target="_blank" rel="noopener noreferrer" 
-                               class="inline-flex items-center bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-dark transition-colors">
-                                🚀 Acessar n8n Cloud
-                                <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z"></path>
-                                    <path d="M5 5a2 2 0 00-2 2v6a2 2 0 002 2h6a2 2 0 002-2v-2a1 1 0 10-2 0v2H5V7h2a1 1 0 000-2H5z"></path>
-                                </svg>
-                            </a>
-                            <p class="text-sm mt-2 opacity-75">Plano gratuito disponível com 5.000 execuções por mês</p>
+                        <div class="bg-yellow-50 dark:bg-yellow-900 p-4 rounded-lg mb-6">
+                            <p>Para começar rapidamente, use o <strong>n8n Cloud</strong> em cloud.n8n.io - versão hospedada oficial com plano gratuito disponível.</p>
                         </div>
 
                         <h3 class="text-xl font-semibold mb-4">⚙️ Configurações Importantes</h3>
@@ -346,7 +326,6 @@ N8N_HOST=localhost
 N8N_PORT=5678
 N8N_PROTOCOL=http
 WEBHOOK_URL=http://localhost:5678/
-NODE_ENV=production
                                 </div>
                             </div>
                             
@@ -363,23 +342,13 @@ DB_POSTGRESDB_PASSWORD=n8n
                                 </div>
                             </div>
                         </div>
-
-                        <div class="mt-6 p-4 bg-green-50 dark:bg-green-900 rounded-lg">
-                            <p class="font-semibold text-green-800 dark:text-green-200">✅ Acesso Local</p>
-                            <p class="text-green-700 dark:text-green-300">Após a instalação, acesse: 
-                                <a href="http://localhost:5678" target="_blank" rel="noopener noreferrer" 
-                                   class="underline hover:text-green-900 dark:hover:text-green-100">
-                                    http://localhost:5678
-                                </a>
-                            </p>
-                        </div>
                     </div>
                 </section>
 
                 <!-- Seção 4: Primeiros Passos -->
                 <section id="primeiros-passos" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">4. Primeiros Passos</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">4. Primeiros Passos</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">🎯 Acessando a Interface</h3>
                         <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mb-6">
@@ -417,8 +386,8 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 5: Nodes Essenciais -->
                 <section id="nodes" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">5. Nodes Essenciais</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">5. Nodes Essenciais</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">🔔 Trigger Nodes</h3>
                         <div class="grid md:grid-cols-2 gap-4 mb-6">
@@ -461,7 +430,7 @@ DB_POSTGRESDB_PASSWORD=n8n
                         </div>
 
                         <h3 class="text-xl font-semibold mb-4 mt-6">🔗 Nodes de Integração Populares</h3>
-                        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="grid md:grid-cols-3 gap-4">
                             <div class="text-center p-4 bg-white dark:bg-gray-700 rounded-lg border">
                                 <h4 class="font-semibold">Google Sheets</h4>
                                 <p class="text-sm">Lê/escreve planilhas</p>
@@ -492,27 +461,27 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 6: Exemplos Práticos -->
                 <section id="exemplos" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">6. Exemplos Práticos</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">6. Exemplos Práticos</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">📝 Exemplo 1: Monitor de Website</h3>
                         <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-lg mb-6">
                             <h4 class="font-semibold mb-3">Objetivo: Monitorar se um site está online</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded flex-shrink-0">1</span>
+                                    <span class="bg-blue-500 text-white px-3 py-1 rounded">1</span>
                                     <span><strong>Cron Trigger:</strong> A cada 5 minutos</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-green-500 text-white px-3 py-1 rounded flex-shrink-0">2</span>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded">2</span>
                                     <span><strong>HTTP Request:</strong> GET para o site</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded flex-shrink-0">3</span>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded">3</span>
                                     <span><strong>IF:</strong> Status code != 200?</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-red-500 text-white px-3 py-1 rounded flex-shrink-0">4</span>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded">4</span>
                                     <span><strong>Slack:</strong> Enviar alerta de site fora do ar</span>
                                 </div>
                             </div>
@@ -523,19 +492,19 @@ DB_POSTGRESDB_PASSWORD=n8n
                             <h4 class="font-semibold mb-3">Objetivo: Fazer backup diário de dados do Google Sheets</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded flex-shrink-0">1</span>
+                                    <span class="bg-blue-500 text-white px-3 py-1 rounded">1</span>
                                     <span><strong>Schedule Trigger:</strong> Todo dia às 2h</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-green-500 text-white px-3 py-1 rounded flex-shrink-0">2</span>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded">2</span>
                                     <span><strong>Google Sheets:</strong> Ler dados da planilha</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded flex-shrink-0">3</span>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded">3</span>
                                     <span><strong>JSON:</strong> Converter dados para JSON</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-purple-500 text-white px-3 py-1 rounded flex-shrink-0">4</span>
+                                    <span class="bg-purple-500 text-white px-3 py-1 rounded">4</span>
                                     <span><strong>Google Drive:</strong> Salvar arquivo com timestamp</span>
                                 </div>
                             </div>
@@ -546,19 +515,19 @@ DB_POSTGRESDB_PASSWORD=n8n
                             <h4 class="font-semibold mb-3">Objetivo: Notificar equipe sobre novos Pull Requests</h4>
                             <div class="space-y-3">
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-blue-500 text-white px-3 py-1 rounded flex-shrink-0">1</span>
+                                    <span class="bg-blue-500 text-white px-3 py-1 rounded">1</span>
                                     <span><strong>Webhook:</strong> GitHub webhook para PRs</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-green-500 text-white px-3 py-1 rounded flex-shrink-0">2</span>
+                                    <span class="bg-green-500 text-white px-3 py-1 rounded">2</span>
                                     <span><strong>Set:</strong> Extrair dados relevantes do PR</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded flex-shrink-0">3</span>
+                                    <span class="bg-yellow-500 text-white px-3 py-1 rounded">3</span>
                                     <span><strong>IF:</strong> É um novo PR?</span>
                                 </div>
                                 <div class="flex items-center space-x-3">
-                                    <span class="bg-red-500 text-white px-3 py-1 rounded flex-shrink-0">4</span>
+                                    <span class="bg-red-500 text-white px-3 py-1 rounded">4</span>
                                     <span><strong>Discord:</strong> Enviar mensagem formatada</span>
                                 </div>
                             </div>
@@ -568,8 +537,8 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 7: Recursos Avançados -->
                 <section id="avancado" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">7. Recursos Avançados</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">7. Recursos Avançados</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">🔄 Sub-workflows</h3>
                         <div class="bg-blue-50 dark:bg-blue-900 p-4 rounded-lg mb-6">
@@ -614,8 +583,8 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 8: Melhores Práticas -->
                 <section id="melhores-praticas" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">8. Melhores Práticas</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">8. Melhores Práticas</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">📋 Organização</h3>
                         <ul class="list-disc list-inside space-y-2 mb-6">
@@ -662,8 +631,8 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 9: Troubleshooting -->
                 <section id="troubleshooting" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">9. Solução de Problemas</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">9. Solução de Problemas</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">🐛 Problemas Comuns</h3>
                         <div class="space-y-4">
@@ -700,38 +669,26 @@ DB_POSTGRESDB_PASSWORD=n8n
 
                 <!-- Seção 10: Recursos Adicionais -->
                 <section id="recursos" class="mb-16">
-                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-6 md:p-8 shadow-lg">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-6 text-primary">10. Recursos Adicionais</h2>
+                    <div class="section-card bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                        <h2 class="text-3xl font-bold mb-6 text-primary">10. Recursos Adicionais</h2>
                         
                         <h3 class="text-xl font-semibold mb-4">📚 Documentação e Comunidade</h3>
                         <div class="grid md:grid-cols-2 gap-4 mb-6">
                             <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                 <h4 class="font-semibold mb-2">Documentação Oficial</h4>
-                                <a href="https://docs.n8n.io" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark underline">
-                                    docs.n8n.io - Guias completos e referência da API
-                                </a>
+                                <p>docs.n8n.io - Guias completos e referência da API</p>
                             </div>
                             <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                 <h4 class="font-semibold mb-2">Comunidade</h4>
-                                <a href="https://community.n8n.io" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark underline">
-                                    community.n8n.io - Fórum oficial para dúvidas
-                                </a>
+                                <p>community.n8n.io - Fórum oficial para dúvidas e discussões</p>
                             </div>
                             <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                 <h4 class="font-semibold mb-2">GitHub</h4>
-                                <a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark underline">
-                                    github.com/n8n-io/n8n - Código fonte e issues
-                                </a>
+                                <p>github.com/n8n-io/n8n - Código fonte e issues</p>
                             </div>
                             <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
                                 <h4 class="font-semibold mb-2">Templates</h4>
-                                <a href="https://n8n.io/workflows" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark underline">
-                                    n8n.io/workflows - Biblioteca de workflows prontos
-                                </a>
+                                <p>n8n.io/workflows - Biblioteca de workflows prontos</p>
                             </div>
                         </div>
 
@@ -739,18 +696,12 @@ DB_POSTGRESDB_PASSWORD=n8n
                         <div class="space-y-3">
                             <div class="flex items-center justify-between bg-white dark:bg-gray-700 p-3 rounded border">
                                 <span><strong>Postman:</strong> Teste APIs antes de usar no n8n</span>
-                                <a href="https://www.postman.com" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark text-sm">🔗</a>
                             </div>
                             <div class="flex items-center justify-between bg-white dark:bg-gray-700 p-3 rounded border">
                                 <span><strong>ngrok:</strong> Exponha localhost para webhooks</span>
-                                <a href="https://ngrok.com" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark text-sm">🔗</a>
                             </div>
                             <div class="flex items-center justify-between bg-white dark:bg-gray-700 p-3 rounded border">
                                 <span><strong>Webhook.site:</strong> Teste webhooks facilmente</span>
-                                <a href="https://webhook.site" target="_blank" rel="noopener noreferrer" 
-                                   class="text-primary hover:text-primary-dark text-sm">🔗</a>
                             </div>
                         </div>
 
@@ -769,9 +720,6 @@ DB_POSTGRESDB_PASSWORD=n8n
         </main>
     </div>
 
-    <!-- Overlay para mobile -->
-    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
-
     <script>
         // Dark mode detection
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -788,15 +736,10 @@ DB_POSTGRESDB_PASSWORD=n8n
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const sidebar = document.getElementById('sidebar');
-        const overlay = document.getElementById('overlay');
         
-        function toggleMobileMenu() {
+        menuToggle.addEventListener('click', () => {
             sidebar.classList.toggle('-translate-x-full');
-            overlay.classList.toggle('hidden');
-        }
-
-        menuToggle.addEventListener('click', toggleMobileMenu);
-        overlay.addEventListener('click', toggleMobileMenu);
+        });
 
         // Progress bar
         function updateProgressBar() {
@@ -824,7 +767,7 @@ DB_POSTGRESDB_PASSWORD=n8n
                 
                 // Close mobile menu after click
                 if (window.innerWidth < 768) {
-                    toggleMobileMenu();
+                    sidebar.classList.add('-translate-x-full');
                 }
             });
         });
@@ -844,24 +787,22 @@ DB_POSTGRESDB_PASSWORD=n8n
             });
             
             navLinks.forEach(link => {
-                link.classList.remove('active');
+                link.classList.remove('bg-primary', 'text-white');
                 if (link.getAttribute('href') === '#' + currentSection) {
-                    link.classList.add('active');
+                    link.classList.add('bg-primary', 'text-white');
                 }
             });
         }
 
         window.addEventListener('scroll', highlightActiveSection);
         
-        // Initialize active section on load
-        highlightActiveSection();
-        updateProgressBar();
-
-        // Handle resize for mobile menu
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                sidebar.classList.remove('-translate-x-full');
-                overlay.classList.add('hidden');
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth < 768 && 
+                !sidebar.contains(e.target) && 
+                !menuToggle.contains(e.target) &&
+                !sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.add('-translate-x-full');
             }
         });
     </script>
